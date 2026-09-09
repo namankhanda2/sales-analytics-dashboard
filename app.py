@@ -156,7 +156,7 @@ fig_trend.update_layout(
     xaxis_title="Month", yaxis_title="Amount ($)", height=380,
     hovermode="x unified", margin=dict(l=10, r=10, t=30, b=10),
 )
-st.plotly_chart(fig_trend, use_container_width=True)
+st.plotly_chart(fig_trend, width="stretch")
 
 # ------------------------------------------------------------------
 # Region + category breakdown
@@ -182,7 +182,7 @@ with col_left:
         region_df, x="region", y="revenue", color="region", text_auto=".2s"
     )
     fig_region.update_layout(showlegend=False, height=360, margin=dict(l=10, r=10, t=30, b=10))
-    st.plotly_chart(fig_region, use_container_width=True)
+    st.plotly_chart(fig_region, width="stretch")
 
 with col_right:
     st.subheader("Revenue by Category")
@@ -203,7 +203,7 @@ with col_right:
         cat_df, x="category", y="revenue", color="category", text_auto=".2s"
     )
     fig_cat.update_layout(showlegend=False, height=360, margin=dict(l=10, r=10, t=30, b=10))
-    st.plotly_chart(fig_cat, use_container_width=True)
+    st.plotly_chart(fig_cat, width="stretch")
 
 # ------------------------------------------------------------------
 # Top products + segment share
@@ -235,7 +235,7 @@ with col_left2:
         text_auto=".2s",
     )
     fig_products.update_layout(height=420, margin=dict(l=10, r=10, t=30, b=10))
-    st.plotly_chart(fig_products, use_container_width=True)
+    st.plotly_chart(fig_products, width="stretch")
 
 with col_right2:
     st.subheader("Revenue Share by Customer Segment")
@@ -251,7 +251,7 @@ with col_right2:
     )
     fig_seg = px.pie(seg_df, names="customer_segment", values="revenue", hole=0.45)
     fig_seg.update_layout(height=420, margin=dict(l=10, r=10, t=30, b=10))
-    st.plotly_chart(fig_seg, use_container_width=True)
+    st.plotly_chart(fig_seg, width="stretch")
 
 st.divider()
 
@@ -270,7 +270,7 @@ with st.expander("View underlying SQL query data"):
         """,
         params,
     )
-    st.dataframe(sample, use_container_width=True, height=320)
+    st.dataframe(sample, width="stretch", height=320)
 
 st.caption(
     "Built with Python (pandas + SQL + Plotly) and Streamlit. "
